@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A heartfelt apology — made with love">
+  <title>I'm Sorry ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating hearts background (global) -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <!-- Music control -->
+  <button id="music-btn" class="music-btn" aria-label="Toggle background music" title="Toggle music">
+    <span class="music-icon music-icon--play">🎵</span>
+    <span class="music-icon music-icon--pause hidden">⏸</span>
+  </button>
+  <audio id="bg-music" loop preload="none"></audio>
+
+  <!-- SECTION 1: Cinematic Opening -->
+  <div id="opening-screen" class="opening-screen">
+    <canvas id="opening-particles" aria-hidden="true"></canvas>
+    <div id="opening-hearts" class="opening-hearts" aria-hidden="true"></div>
+    <div class="opening-content">
+      <div class="opening-heart" aria-hidden="true">
+        <svg viewBox="0 0 100 100" class="heart-svg">
+          <path d="M50 88 C20 65, 5 45, 15 28 C22 16, 38 14, 50 26 C62 14, 78 16, 85 28 C95 45, 80 65, 50 88Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1 class="opening-title">I'm Sorry ❤️</h1>
+      <p class="opening-subtitle">For hurting you, for the moments I wish I could change...</p>
+      <button id="open-heart-btn" class="btn btn--primary btn--glow">
+        Open My Heart ❤️
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Website (hidden until opening completes) -->
+  <main id="main-content" class="main-content hidden">
+
+    <!-- SECTION 2: Apology Message -->
+    <section id="apology-message" class="section section--dark apology-section">
+      <div class="container">
+        <h2 class="section-title reveal-on-scroll">I'm Truly Sorry</h2>
+        <div id="apology-lines" class="apology-lines"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Photo Memories -->
+    <section id="memories" class="section section--gradient memories-section">
+      <div class="container">
+        <h2 class="section-title reveal-on-scroll">Our Memories ❤️</h2>
+        <p class="section-subtitle reveal-on-scroll">Some moments are too special to forget.</p>
+        <div id="photo-gallery" class="photo-gallery" role="list"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Our Videos -->
+    <section id="videos" class="section section--gradient videos-section">
+      <div class="container">
+        <h2 class="section-title reveal-on-scroll">Our Videos ❤️</h2>
+        <p class="section-subtitle reveal-on-scroll">Little moments, captured in motion.</p>
+        <div id="video-gallery" class="video-gallery" role="list"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous photo">&#10094;</button>
+      <button class="lightbox-next" aria-label="Next photo">&#10095;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Memory photo">
+        <div id="lightbox-placeholder" class="lightbox-placeholder hidden">
+          <span class="placeholder-heart">❤️</span>
+          <span>Your Memory</span>
+        </div>
+      </div>
+      <div id="lightbox-counter" class="lightbox-counter">1 / 12</div>
+    </div>
+
+    <!-- SECTION 5: Memory Message -->
+    <section id="memory-message" class="section section--cinematic memory-message-section">
+      <canvas id="memory-particles" class="section-particles" aria-hidden="true"></canvas>
+      <div class="container memory-message-content">
+        <p class="memory-line memory-line--1">Every memory with you means more to me than I can explain.</p>
+        <p class="memory-line memory-line--2">Even the smallest moments became memories I'll always carry with me.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6: My Promise -->
+    <section id="my-promise" class="section section--dark promise-section">
+      <div class="promise-glow-heart" aria-hidden="true">
+        <svg viewBox="0 0 100 100" class="heart-svg">
+          <path d="M50 88 C20 65, 5 45, 15 28 C22 16, 38 14, 50 26 C62 14, 78 16, 85 28 C95 45, 80 65, 50 88Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="promise-card reveal-on-scroll">
+          <h2 class="promise-title">My Promise To You ❤️</h2>
+          <div id="promise-text" class="promise-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: The Apology -->
+    <section id="the-apology" class="section section--gradient apology-deep-section">
+      <div class="container">
+        <h2 class="apology-big reveal-on-scroll">I'm sorry.</h2>
+        <div id="apology-deep-lines" class="apology-deep-lines"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Final Message -->
+    <section id="final-message" class="section section--final final-section">
+      <div class="final-glow-heart" aria-hidden="true">
+        <svg viewBox="0 0 100 100" class="heart-svg">
+          <path d="M50 88 C20 65, 5 45, 15 28 C22 16, 38 14, 50 26 C62 14, 78 16, 85 28 C95 45, 80 65, 50 88Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="container final-content">
+        <h2 class="final-title reveal-on-scroll">I Don't Want To Hurt You Again ❤️</h2>
+        <div id="final-text" class="final-text reveal-on-scroll"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Love Confession -->
+    <section id="love-confession" class="section section--dark love-confession-section">
+      <div class="love-confession-bg" aria-hidden="true">
+        <span class="love-confession-heart love-confession-heart--1">💗</span>
+        <span class="love-confession-heart love-confession-heart--2">💖</span>
+        <span class="love-confession-heart love-confession-heart--3">💘</span>
+        <span class="love-confession-heart love-confession-heart--4">💞</span>
+      </div>
+      <div class="container love-confession-container">
+        <div class="love-confession-card reveal-on-scroll">
+          <p class="love-confession-main">I love you soooooo much, bacha 😘</p>
+
+          <div class="love-kiss-lines" aria-label="Love kisses">
+            <span class="kiss-line kiss-line--1">Mwaaahhh <span class="kiss-emoji">💋</span></span>
+            <span class="kiss-line kiss-line--2">Mwaaaahhh <span class="kiss-emoji">💋</span></span>
+            <span class="kiss-line kiss-line--3">Mwaaaaahhh <span class="kiss-emoji">💋</span></span>
+            <span class="kiss-line kiss-line--4">Mwaaaaaahhh <span class="kiss-emoji">💋</span></span>
+            <span class="kiss-line kiss-line--5">Mwaaaaaaaaaahhh <span class="kiss-emoji">💋</span></span>
+          </div>
+
+          <p class="love-confession-baby">You will always be my baby. ❤️</p>
+
+          <p class="love-confession-promise">
+            And I promise I will make up for the things that went down because of me. I know I hurt you,
+            and I truly want to make things right. I will keep my promise and do my best to never hurt you
+            like that again.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Final Interactive Button -->
+    <section id="one-more-thing" class="section section--dark one-more-section">
+      <div class="container one-more-container">
+        <button id="one-more-btn" class="btn btn--primary btn--glow">
+          One More Thing ❤️
+        </button>
+        <div id="one-more-message" class="one-more-message hidden">
+          <p>Thank you for reading this.</p>
+          <p>Whatever happens, I'll always be grateful for the memories we've shared.</p>
+          <p>I'm sorry.</p>
+          <p>And I mean it. ❤️</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
