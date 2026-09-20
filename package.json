@@ -1,0 +1,22 @@
+{
+  "name": "apology-website",
+  "version": "1.0.0",
+  "description": "A heartfelt apology website with Vercel Analytics",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Static site - no build required'",
+    "dev": "npx http-server -p 3000",
+    "lint": "echo 'No linting configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "apology",
+    "website",
+    "vercel-analytics"
+  ],
+  "author": "",
+  "license": "ISC"
+}
